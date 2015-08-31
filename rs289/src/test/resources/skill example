@@ -1,0 +1,21 @@
+class Herblore implements Initializable {
+	
+	@Inject
+	private PlayerManager players;
+	
+	@Inject
+	private Session session;
+	
+	public void initialize() throws Exception {
+		// load configuration
+	}
+	
+	public void onItemOnItem(@Observes ItemOnItemEvent event) {
+		// combine ingredients
+	}
+	
+	public void onItemAction(@Observes ItemActionEvent event) {
+		// clean herbs
+	}
+	
+}
