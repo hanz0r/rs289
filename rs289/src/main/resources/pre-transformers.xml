@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<transformers>
+	<transformer opcode="14" alias="handshake" />
+	<transformer opcode="15" alias="update" />
+	<transformer opcode="16" alias="login" />
+	<transformer opcode="18" alias="login" />
+</transformers>
