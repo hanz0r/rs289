@@ -31,17 +31,13 @@ public class Credentials implements Serializable {
 	 */
 	private String password;
 
-	public Credentials() {
-		// Constructor for Hibernate
-	}
-
-	public Credentials(long id, String username, String password) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-	}
+	/**
+	 * The display name
+	 */
+	private String displayname;
 
 	/**
+	 * Checks to see if the entered username and password match the ones in the database
 	 * 
 	 * @param username
 	 * @param password
@@ -49,6 +45,13 @@ public class Credentials implements Serializable {
 	 */
 	public boolean validate(String username, String password) {
 		return this.username.equals(username) && this.password.equals(password);
+	}
+
+	/**
+	 * @return the displayname
+	 */
+	public String getDisplayname() {
+		return displayname;
 	}
 
 }

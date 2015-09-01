@@ -7,6 +7,7 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 import org.hannes.scoundrel.rs.entity.EntityManager;
@@ -39,6 +40,11 @@ public class Realm {
 	 * The player instance
 	 */
 	@Inject private Instance<Player> player_instance;
+	
+	/**
+	 * The persistence entity manager
+	 */
+	@Inject private javax.persistence.EntityManager entity_manager;
 
 	/**
 	 * Produces a new player if there is room on the realm
@@ -59,12 +65,18 @@ public class Realm {
 	 * @throws IOException
 	 */
 	public void onLoginEvent(@Observes LoginEvent event) throws IOException {
-		Credentials credentials = new Credentials(0, "x", "x"); // get credentials
+		TypedQuery<Credentials> query = entity_manager.createQuery("SELECT c FROM Credentials c WHERE c.username= :username AND c.password= :password", Credentials.class)
+				.setParameter("username", event.getUsername()).setParameter("password", event.getPassword());
+		
+		/*
+		 * Try and get the credentials
+		 */
+		Credentials credentials = query.getResultList().isEmpty() ? null : query.getSingleResult();
 		
 		/*
 		 * Validate the player's login attempt
 		 */
-		if (credentials.validate(event.getUsername(), event.getPassword())) {
+		if (credentials != null && credentials.validate(event.getUsername(), event.getPassword())) {
 			Player player = player_instance.get();
 			
 			/*
@@ -72,7 +84,7 @@ public class Realm {
 			 */
 			if (player != null) {
 				/*
-				 * 
+				 * Set the player's name to t
 				 */
 				player.setUsername(event.getUsername());
 				// TODO: load the player's data
