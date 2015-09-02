@@ -29,8 +29,7 @@ public class PreTransformer implements Transformer, Initializable {
 
 	@Override
 	public Event transform(TransformationContext context) {
-		return new Event(templates.get(context.getMessage().getHeader()
-				.getOpcode()), context.getMessage().getPayload());
+		return new Event(templates.get(context.getMessage().getHeader().getOpcode()), context.getMessage().getPayload());
 	}
 
 }

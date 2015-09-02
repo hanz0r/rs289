@@ -1,6 +1,10 @@
 package org.hannes.scoundrel.rs.entity;
 
-public interface EntityManager<T extends Entity> {
+import java.util.Queue;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
+
+public interface EntityManager<T extends Entity> extends Iterable<T>, Supplier<Stream<T>> {
 
 	/**
 	 * Get the entity for the given id
@@ -25,6 +29,13 @@ public interface EntityManager<T extends Entity> {
 	public abstract void release(T entity);
 
 	/**
+	 * Gets the entities surrounding the given entity (non inclusive)
+	 * 
+	 * @return
+	 */
+	public Queue<T> getSurroundingEntities(Entity entity);
+
+	/**
 	 * Gets the size of the manager
 	 * 
 	 * @return
@@ -39,14 +50,14 @@ public interface EntityManager<T extends Entity> {
 	public int capacity();
 
 	/**
-	 * Clears every entity being managed
-	 */
-	public void clear();
-
-	/**
 	 * Allocates a free index
 	 * @return
 	 */
 	public int allocateIndex();
+
+	/**
+	 * Clears every entity being managed
+	 */
+	public void clear();
 
 }
