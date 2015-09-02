@@ -1,6 +1,8 @@
-package org.hannes.scoundrel.net;
+package org.hannes.scoundrel.util;
 
 import java.nio.ByteBuffer;
+
+import org.hannes.scoundrel.net.Session;
 
 public interface Serializable {
 

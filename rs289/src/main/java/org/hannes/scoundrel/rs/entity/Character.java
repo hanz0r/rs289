@@ -1,5 +1,6 @@
 package org.hannes.scoundrel.rs.entity;
 
+import org.hannes.scoundrel.rs.entity.render.RenderingContext;
 import org.hannes.scoundrel.rs.locale.Point;
 import org.hannes.scoundrel.util.Attributes;
 
@@ -14,6 +15,14 @@ public abstract class Character implements Entity {
 	 * The attributes for this
 	 */
 	private final Attributes attributes = new Attributes();
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public RenderingContext createRenderingContext() {
+		return null;
+	}
 
 	@Override
 	public Attributes attributes() {

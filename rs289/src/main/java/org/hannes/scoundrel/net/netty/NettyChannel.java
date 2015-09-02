@@ -4,10 +4,10 @@ import java.io.IOException;
 
 import org.hannes.scoundrel.net.Channel;
 import org.hannes.scoundrel.net.IOHandler;
-import org.hannes.scoundrel.net.Serializable;
 import org.hannes.scoundrel.net.Session;
 import org.hannes.scoundrel.net.context.IOContext;
 import org.hannes.scoundrel.net.message.Message;
+import org.hannes.scoundrel.util.Serializable;
 
 public class NettyChannel implements Channel {
 

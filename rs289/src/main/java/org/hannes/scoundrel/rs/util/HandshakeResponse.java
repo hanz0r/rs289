@@ -2,8 +2,8 @@ package org.hannes.scoundrel.rs.util;
 
 import java.nio.ByteBuffer;
 
-import org.hannes.scoundrel.net.Serializable;
 import org.hannes.scoundrel.net.Session;
+import org.hannes.scoundrel.util.Serializable;
 
 public class HandshakeResponse implements Serializable {
 	
