@@ -26,11 +26,36 @@ public class Point {
 		this.y = y;
 		this.z = z;
 	}
+	
+	/**
+	 * Distance in manhattan distance
+	 * 
+	 * @param other
+	 * @return
+	 */
+	public int distance(Point other) {
+		return (x - other.x) + (y - other.y);
+	}
 
+	/**
+	 * Returns a new point with the values of this point offset by a given x and y
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public Point offset(int x, int y) {
 		return offset(x, y, 0);
 	}
 
+	/**
+	 * Returns a new point with the values of this point offset by a given x, y and z
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @return
+	 */
 	public Point offset(int x, int y, int z) {
 		return new Point(this.x + x, this.y + y, this.z + z);
 	}

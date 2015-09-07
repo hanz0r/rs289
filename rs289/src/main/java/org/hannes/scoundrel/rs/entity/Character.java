@@ -15,16 +15,15 @@ public abstract class Character implements Entity {
 	 */
 	private final Attributes attributes = new Attributes();
 
-	@Override
-	public Attributes attributes() {
+	@Override public Attributes attributes() {
 		return attributes;
 	}
 
-	public Point getPoint() {
+	@Override public Point getLocation() {
 		return point;
 	}
 
-	public void setPoint(Point point) {
+	@Override public void setLocation(Point point) {
 		this.point = point;
 	}
 

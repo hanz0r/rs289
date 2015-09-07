@@ -2,7 +2,7 @@ package org.hannes.scoundrel.rs.util;
 
 import java.nio.ByteBuffer;
 
-public class ByteBufferUtil {
+public class StringStream {
 
 	public static String readString(ByteBuffer buffer) {
 		StringBuilder builder = new StringBuilder();

@@ -2,8 +2,11 @@ package org.hannes.scoundrel.rs.entity.manager;
 
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.stream.Stream;
 
+import org.hannes.scoundrel.rs.entity.Entity;
 import org.hannes.scoundrel.rs.entity.EntityManager;
 import org.hannes.scoundrel.rs.entity.Player;
 
@@ -54,6 +57,11 @@ public class SinglePlayerHandler implements EntityManager<Player> {
 	@Override
 	public Stream<Player> get() {
 		return Collections.singleton(player).stream();
+	}
+
+	@Override
+	public Queue<Player> getSurroundingEntities(Entity entity) {
+		return new PriorityQueue<>();
 	}
 
 }
