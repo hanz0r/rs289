@@ -6,9 +6,12 @@ import java.net.InetSocketAddress;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Instance;
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 
 import org.apache.log4j.Logger;
 import org.hannes.scoundrel.net.IOHandler;
+import org.hannes.scoundrel.rse.Player;
+import org.hannes.scoundrel.rse.player.Credentials;
 import org.hannes.scoundrel.util.Initializable;
 import org.jboss.weld.environment.se.events.ContainerInitialized;
 
@@ -42,6 +45,9 @@ public class App {
 	 */
 	public void initialize(@Observes ContainerInitialized event) throws Exception {
 		logger.debug("using handler: " + handler.getClass());
+		
+		Credentials credentials = new Credentials("x", "x", "Hanonator");
+		credentials.setPlayer(new Player());
 		
 		/*
 		 * Initialize every class implementing initializable pls ignore the ugly

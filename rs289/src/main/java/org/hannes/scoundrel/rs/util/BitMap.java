@@ -55,7 +55,6 @@ public class BitMap implements Serializable {
 	 * @return
 	 */
 	public BitMap put(int numBits, int value) {
-		int bytes = (int) Math.ceil((double) numBits / 8D) + 1;
 		int position = (bitPosition + 7) / 8;
 
 		/*
